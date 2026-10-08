@@ -1,0 +1,90 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Fraunces", Georgia, "Times New Roman", serif;
+  --color-ivory: #f3eee6;
+  --color-paper: #faf7f2;
+  --color-ink: #161513;
+  --color-muted: #6d675f;
+  --color-line: #e3dbd0;
+  --color-card: #fffdf9;
+  --color-danger: #8e3b32;
+  --color-ok: #2c6b4a;
+}
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  body {
+    margin: 0;
+    background: var(--color-ivory);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+    transition-property: scale, background-color, color, border-color, opacity;
+    transition-duration: 150ms;
+    transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  button:not(:disabled):active,
+  [role="button"]:not(:disabled):active {
+    scale: 0.96;
+  }
+  h1, h2, h3 { text-wrap: balance; }
+  p { text-wrap: pretty; }
+  :focus-visible {
+    outline: 2px solid var(--color-ink);
+    outline-offset: 2px;
+  }
+  ::selection {
+    background: var(--color-ink);
+    color: var(--color-ivory);
+  }
+}
+
+.display {
+  font-family: var(--font-display);
+  font-weight: 560;
+  letter-spacing: -0.03em;
+  line-height: 1.04;
+  text-wrap: balance;
+}
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(12px); filter: blur(4px); }
+  to { opacity: 1; transform: none; filter: none; }
+}
+
+.rise { animation: rise 500ms cubic-bezier(0.22, 1, 0.36, 1) both; }
+.d1 { animation-delay: 40ms; }
+.d2 { animation-delay: 90ms; }
+.d3 { animation-delay: 140ms; }
+.d4 { animation-delay: 190ms; }
+.d5 { animation-delay: 240ms; }
+
+@keyframes done-in {
+  from { opacity: 0; transform: scale(0.96); }
+  to { opacity: 1; transform: none; }
+}
+.done-in { animation: done-in 400ms cubic-bezier(0.22, 1, 0.36, 1) both; }
+
+.shot {
+  transition: transform 250ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+.group:hover .shot {
+  transform: scale(1.03);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rise, .done-in, .shot { animation: none; transition: none; }
+  .group:hover .shot { transform: none; }
+  button:not(:disabled):active,
+  [role="button"]:not(:disabled):active { scale: 1; }
+}

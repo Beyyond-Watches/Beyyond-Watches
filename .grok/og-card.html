@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <style>
+    @font-face {
+      font-family: "Cormorant";
+      src: url("fonts/CormorantGaramond-SemiBold.ttf") format("truetype");
+      font-weight: 600;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: "Cormorant";
+      src: url("fonts/CormorantGaramond-Medium.ttf") format("truetype");
+      font-weight: 500;
+      font-style: normal;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body, .card {
+      width: 1200px;
+      height: 630px;
+      overflow: hidden;
+      background: #F3EEE6;
+    }
+    .card { position: relative; }
+    .hero {
+      position: absolute;
+      width: 540px;
+      height: 540px;
+      left: 330px;
+      bottom: -6px;
+      object-fit: cover;
+      -webkit-mask-image: radial-gradient(circle at 50% 52%, #000 46%, transparent 68%);
+      mask-image: radial-gradient(circle at 50% 52%, #000 46%, transparent 68%);
+    }
+    .lockup {
+      position: absolute;
+      z-index: 1;
+      left: 0;
+      right: 0;
+      top: 42px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    h1 {
+      font-family: "Cormorant", "Liberation Serif", serif;
+      font-weight: 600;
+      font-size: 168px;
+      line-height: 0.76;
+      color: #161513;
+      letter-spacing: -0.03em;
+    }
+    .rule {
+      width: 48px;
+      height: 1px;
+      background: #6D675F;
+      margin: 14px 0 12px;
+    }
+    .sub {
+      font-family: "Cormorant", "Liberation Serif", serif;
+      font-weight: 500;
+      font-size: 26px;
+      letter-spacing: 0.46em;
+      text-indent: 0.46em;
+      color: #161513;
+      line-height: 1;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <img class="hero" src="../public/watches/aurum.jpg" alt="" />
+    <div class="lockup">
+      <h1>Beyyond</h1>
+      <div class="rule"></div>
+      <div class="sub">Watches</div>
+    </div>
+  </div>
+</body>
+</html>
